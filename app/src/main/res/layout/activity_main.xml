@@ -21,9 +21,19 @@
     </RelativeLayout>
 
 
-    <ListView
-        android:id="@+id/navigationDrawer"
+    <LinearLayout
+        android:id="@+id/drawer_left"
+        android:layout_gravity="left"
         android:layout_width="300dp"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+
+        <ListView
+            android:id="@+id/navigationDrawer"
+            android:layout_width="300dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
 
 </android.support.v4.widget.DrawerLayout>
