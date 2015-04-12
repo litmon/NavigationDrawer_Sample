@@ -25,13 +25,20 @@
         android:id="@+id/drawer_left"
         android:layout_gravity="left"
         android:layout_width="300dp"
+        android:weightSum="5"
         android:layout_height="match_parent"
         android:background="#ffffff">
 
         <ListView
             android:id="@+id/navigationDrawer"
             android:layout_width="300dp"
-            android:layout_height="match_parent" />
+            android:layout_weight="4"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick=""/>
 
     </LinearLayout>
 
