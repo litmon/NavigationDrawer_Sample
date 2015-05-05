@@ -2,6 +2,8 @@ package com.example.fukuo.navigationdrawer_sample;
 
 import android.content.res.Configuration;
 import android.os.PersistableBundle;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -18,6 +20,8 @@ import android.widget.Toast;
 public class MainActivity extends ActionBarActivity {
 
     ActionBarDrawerToggle toggle;
+    ViewPager pager;
+    CustomPagerAdapter  pagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +40,10 @@ public class MainActivity extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        ListView lv = (ListView) findViewById(R.id.navigationDrawer);
+        ListView lv = (ListView) findViewById(R.id.drawer_left);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
 
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < 100; i++)
             adapter.add("a" + i);
 
         lv.setAdapter(adapter);
@@ -50,6 +54,17 @@ public class MainActivity extends ActionBarActivity {
                 Toast.makeText(getApplicationContext(), "listview clicked." + position, Toast.LENGTH_SHORT).show();
             }
         });
+
+        pager = (ViewPager) findViewById(R.id.pager);
+        pagerAdapter = new CustomPagerAdapter(this);
+
+        pagerAdapter.add(R.drawable.c1);
+        pagerAdapter.add(R.drawable.c2);
+        pagerAdapter.add(R.drawable.c3);
+        pagerAdapter.add(R.drawable.c4);
+        pagerAdapter.add(R.drawable.c5);
+
+        pager.setAdapter(pagerAdapter);
     }
 
     @Override
